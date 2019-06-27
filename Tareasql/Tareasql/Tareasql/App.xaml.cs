@@ -1,4 +1,6 @@
 ﻿using System;
+using Tareasql.ViewModels;
+using Tareasql.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,11 +9,18 @@ namespace Tareasql
 {
     public partial class App : Application
     {
+        public static string FilePath;
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+        }
+        public App(string filePath)
+        {
+            InitializeComponent();
+            MainPage = new NavigationPage(new ListaVentas());
+            FilePath = filePath;
+
         }
 
         protected override void OnStart()
